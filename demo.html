@@ -48,13 +48,23 @@
         })
     }
 
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-        .then(Response => {
-            return Response.json()
-        })
-        .then(data => {
-            console.log('>>> check fetch data: ', data)
-        })
+    const getNewTodo = async (id) => {
+        let response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
+        let data = await response.json()
+        return data;
+    }
+
+    getNewTodo(2).then(data => {
+        console.log('>>> get data: ', data)
+    })
+
+    // fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //     .then(Response => {
+    //         return Response.json()
+    //     })
+    //     .then(data => {
+    //         console.log('>>> check fetch data: ', data)
+    //     })
 
     // getTodos(1).then(data1 => {
     //     console.log('>> get data 1: ', data1)
