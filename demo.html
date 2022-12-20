@@ -33,31 +33,48 @@
                     // callback(undefined, data); //computer understand
                     // callback(undefined, dataString) //server understand
                     // callback(undefined, request.responseText) //plus space to easy watch
+
                 }
                 if (this.readyState === 4 && request.status !== 200) {
                     // callback('Somethings wrongs', undefined);
-                    reject('Somethings wrongs')
+                    reject('Somethings wrongs with id: ' + id)
                 }
             };
             request.open("GET", `https://jsonplaceholder.typicode.com/todos/${id}`, true);
-            // request.open("GET", "data.json", true) //need a date server (VSCode use LiveServer)
+            // request.open("GET", "data.json", true) //need a data server (VSCode use LiveServer)
 
             request.withCredentials = true;
             request.send();
         })
     }
-    getTodos(1)
-        .then(data => {
-            console.log('>> get data: ', data)
-            getTodos(2).then(data => {
-                console.log('get data 2: ', data)
-            })
-        })
+    getTodos(1).then(data1 => {
+        console.log('>> get data 1: ', data1)
+        return getTodos(2); //return func ~> getTodos(1) => Promise ~> can use .then
+    }).then(data2 => {
+        console.log('>>> get data 2: ', data2)
+        return getTodos(3); // ~
+    }).then(data3 => {
+        console.log('>>>> get data 3: ', data3)
+    })
         .catch(err => {
             console.log('>> ', err)
         })
+
+
+    // getTodos(1)
+    //     .then(data => {
+    //         console.log('>> get data: ', data)
+    //         getTodos(2).then(data => {
+    //             console.log('get data 2: ', data)
+    //         })
+    //     })
+    //     .catch(err => {
+    //         console.log('>> ', err)
+    //     })
+
     // getTodos(1, callback);
     // getTodos(2, callback);
+
     // getTodos(1, (error, data) => {
     //     if (error) {
     //         console.log('>>> calling callback with error: ', error)
