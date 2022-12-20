@@ -47,18 +47,27 @@
             request.send();
         })
     }
-    getTodos(1).then(data1 => {
-        console.log('>> get data 1: ', data1)
-        return getTodos(2); //return func ~> getTodos(1) => Promise ~> can use .then
-    }).then(data2 => {
-        console.log('>>> get data 2: ', data2)
-        return getTodos(3); // ~
-    }).then(data3 => {
-        console.log('>>>> get data 3: ', data3)
-    })
-        .catch(err => {
-            console.log('>> ', err)
+
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(Response => {
+            return Response.json()
         })
+        .then(data => {
+            console.log('>>> check fetch data: ', data)
+        })
+
+    // getTodos(1).then(data1 => {
+    //     console.log('>> get data 1: ', data1)
+    //     return getTodos(2); //return func ~> getTodos(1) => Promise ~> can use .then
+    // }).then(data2 => {
+    //     console.log('>>> get data 2: ', data2)
+    //     return getTodos(3); // ~
+    // }).then(data3 => {
+    //     console.log('>>>> get data 3: ', data3)
+    // })
+    //     .catch(err => {
+    //         console.log('>> ', err)
+    //     })
 
 
     // getTodos(1)
