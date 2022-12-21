@@ -11,6 +11,29 @@
 <script src="index.js"></script>
 <script>
 
+    // ... copy
+    let arr1 = [1, 2, 3, 4, 5]
+    let state = {
+        name: 'HoVaTen',
+        address: 'HCMC'
+    }
+
+    console.log('>>> check data arr1: ', arr1)
+
+    let arr2 = { ...state, chanel: 'fb.com' }
+
+    console.log('>>> check data arr1: ', arr2)
+
+
+
+
+
+
+
+
+
+
+
     const callback = (error, data) => {
         if (error) {
             console.log('>>> calling callback with error: ', error)
@@ -62,12 +85,12 @@
     }
 
 
-    getNewTodo('asd').then(data => {
-        console.log('>>> check get data: ', data)
-    })
-        .catch(err => {
-            console.log('>>> check error: ', err.message)
-        })
+    // getNewTodo('asd').then(data => {
+    //     console.log('>>> check get data: ', data)
+    // })
+    //     .catch(err => {
+    //         console.log('>>> check error: ', err.message)
+    //     })
 
     // fetch('https://jsonplaceholder.typicode.com/todos/1')
     //     .then(Response => {
