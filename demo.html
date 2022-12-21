@@ -15,14 +15,26 @@
     let arr1 = [1, 2, 3, 4, 5]
     let state = {
         name: 'HoVaTen',
-        address: 'HCMC'
+        address: 'HCMC',
+        channel: 'fb.com'
     }
 
     console.log('>>> check data arr1: ', arr1)
 
-    let arr2 = { ...state, chanel: 'fb.com' }
+    // let name = state.name;
+    // let address = state.address;
+    // let channel = state.channel
+    // let { name, address, channel } = state;
+    // object only of state (one key)
 
-    console.log('>>> check data arr1: ', arr2)
+    // const [name,setName] = useState('')
+    let arr = ['HoVaTen', 'HCMC']
+    let [name, channel] = arr;
+    console.log('>>> check key: ', name, channel)
+
+
+    // let arr2 = { ...state, chanel: 'fb.com' }
+    // console.log('>>> check data arr1: ', arr2)
 
 
 
